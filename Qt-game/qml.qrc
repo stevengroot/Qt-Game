@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>images/close.png</file>
+        <file>settings.qml</file>
+        <file>images/settings.png</file>
+        <file>mainpage.qml</file>
+        <file>confirm.qml</file>
     </qresource>
 </RCC>
