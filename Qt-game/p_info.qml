@@ -38,7 +38,7 @@ Rectangle  {
 
     Rectangle {
         width: Screen.width
-        height: Screen.height-quit.height
+        height: Screen.height-(quit.height+sliderect.height+70)
         y:quit.height
         color:"#fa7d7d"
         Keys.onReleased: {
@@ -64,8 +64,6 @@ Rectangle  {
             property color infor_color: "#7dfafa"
             model: 50
             delegate: infoDelegate
-            highlight: Rectangle { color: "lightsteelblue"; radius: 6 }
-            focus: true
             anchors.fill: parent
 
         }
@@ -175,9 +173,8 @@ Rectangle  {
         id: sliderect
         width: 200; height: 200
         color: "#7dbcfa"
-        y: Screen.height-(20*Screen.pixelDensity/3 + sliderect.height)
+        y: Screen.height-(sliderect.height+70)
         MouseArea  {
-            focus:true
             anchors.fill: parent
             drag.target: sliderect
             drag.axis: Drag.XAxis

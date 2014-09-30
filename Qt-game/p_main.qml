@@ -8,7 +8,13 @@ Rectangle {
     width: Screen.width
     height: Screen.height
     signal showScreen(string msg)
-
+    focus:true
+    Keys.onReleased: {
+        if (event.key === Qt.Key_Back) {
+            event.accepted = true
+            p_main.showScreen("p_confirm.qml")
+        }
+    }
     Image {
         id: quit
         source: "images/close.png"
@@ -42,7 +48,7 @@ Rectangle {
         source: "images/info.png"
         width : Screen.logicalPixelDensity*20
         height: width
-        x:0;y:Screen.height-info.height;
+        x:0;y:Screen.height-(info.height+70);
         MouseArea {
             anchors.fill: parent
             onClicked:{
@@ -54,13 +60,6 @@ Rectangle {
     Text {
         text: qsTr("Hello World")
         anchors.centerIn: parent
-    }
-
-    Keys.onReleased: {
-        if (event.key === Qt.Key_Back) {
-            event.accepted = true
-            p_main.showScreen("p_confirm.qml")
-        }
     }
 }
 
