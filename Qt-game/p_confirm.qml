@@ -33,4 +33,10 @@ Rectangle {
         onClicked:
             p_confirm.showScreen("p_main.qml")
     }
+    Keys.onReleased: {
+        if (event.key === Qt.Key_Back) {
+            event.accepted = true
+            p_confirm.showScreen("p_main.qml")
+        }
+    }
 }

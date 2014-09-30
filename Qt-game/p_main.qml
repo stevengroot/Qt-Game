@@ -7,7 +7,6 @@ Rectangle {
     id:p_main
     width: Screen.width
     height: Screen.height
-
     signal showScreen(string msg)
 
     Image {
@@ -20,7 +19,6 @@ Rectangle {
             anchors.fill: parent
             onClicked: {
                 p_main.showScreen("p_confirm.qml")
-                //Qt.quit();
             }
         }
     }
@@ -57,9 +55,11 @@ Rectangle {
         text: qsTr("Hello World")
         anchors.centerIn: parent
     }
+
     Keys.onReleased: {
         if (event.key === Qt.Key_Back) {
-            settingswindow.showScreen("p_confirm.qml")
+            event.accepted = true
+            p_main.showScreen("p_confirm.qml")
         }
     }
 }

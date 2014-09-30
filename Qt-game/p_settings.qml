@@ -28,6 +28,7 @@ Rectangle {
 
     Keys.onReleased: {
         if (event.key === Qt.Key_Back) {
+            event.accepted = true
             p_settings.showScreen("p_main.qml")
         }
     }

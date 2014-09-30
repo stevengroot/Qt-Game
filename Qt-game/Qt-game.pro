@@ -1,6 +1,7 @@
 TEMPLATE = app
 
 QT += qml quick
+QT += positioning
 
 SOURCES += main.cpp
 
@@ -21,4 +22,7 @@ OTHER_FILES += \
     p_settings.qml \
     p_main.qml \
     p_info.qml \
-    p_confirm.qml
+    p_confirm.qml \
+    android/AndroidManifest.xml
+
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android

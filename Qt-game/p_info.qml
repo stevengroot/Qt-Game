@@ -20,7 +20,6 @@ Rectangle  {
         width : Screen.logicalPixelDensity*20
         height: width
         x:0;y:0;
-        focus:true
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -46,7 +45,7 @@ Rectangle  {
             if (event.key === Qt.Key_Back) {
                 backpressed = backpressed+1
                 event.accepted = true
-                if (backpressed >= xtonumber(sliderect.x)) ei.exampleUrl = "";
+                if (backpressed >= xtonumber(sliderect.x)) p_info.showScreen("main.qml");
             }
         }
 
