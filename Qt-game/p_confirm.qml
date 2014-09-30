@@ -3,7 +3,7 @@ import QtQuick.Window 2.1
 import QtQuick.Controls 1.2
 
 Rectangle {
-    id:confirm
+    id:p_confirm
     height: Screen.height
     width: Screen.width
 
@@ -31,6 +31,6 @@ Rectangle {
         x: Screen.width/4.5*2.5
         y: Screen.height/2+confirmtext.height
         onClicked:
-            confirm.showScreen("mainpage.qml")
+            p_confirm.showScreen("p_main.qml")
     }
 }

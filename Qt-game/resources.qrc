@@ -1,12 +1,11 @@
 <RCC>
     <qresource prefix="/">
+        <file>images/close.png</file>
+        <file>images/info.png</file>
+        <file>images/settings.png</file>
         <file>p_confirm.qml</file>
         <file>p_info.qml</file>
         <file>p_main.qml</file>
         <file>p_settings.qml</file>
-        <file>main.qml</file>
-        <file>images/close.png</file>
-        <file>images/info.png</file>
-        <file>images/settings.png</file>
     </qresource>
 </RCC>

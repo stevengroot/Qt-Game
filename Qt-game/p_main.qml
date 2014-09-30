@@ -4,7 +4,7 @@ import "images"
 
 
 Rectangle {
-    id:mainpage
+    id:p_main
     width: Screen.width
     height: Screen.height
 
@@ -19,7 +19,7 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                mainpage.showScreen("confirm.qml")
+                p_main.showScreen("p_confirm.qml")
                 //Qt.quit();
             }
         }
@@ -34,7 +34,21 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked:{
-                mainpage.showScreen("settings.qml")
+                p_main.showScreen("p_settings.qml")
+            }
+        }
+    }
+
+    Image {
+        id: info
+        source: "images/info.png"
+        width : Screen.logicalPixelDensity*20
+        height: width
+        x:0;y:Screen.height-info.height;
+        MouseArea {
+            anchors.fill: parent
+            onClicked:{
+                p_main.showScreen("p_info.qml")
             }
         }
     }
@@ -45,7 +59,7 @@ Rectangle {
     }
     Keys.onReleased: {
         if (event.key === Qt.Key_Back) {
-            settingswindow.showScreen("confirm.qml")
+            settingswindow.showScreen("p_confirm.qml")
         }
     }
 }

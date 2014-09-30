@@ -3,7 +3,7 @@ import QtQuick.Window 2.1
 import "images"
 
 Rectangle {
-    id:settingswindow
+    id:p_settings
     width: Screen.width
     height: Screen.height
     color:"lightsteelblue"
@@ -21,14 +21,14 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                settingswindow.showScreen("mainpage.qml")
+                p_settings.showScreen("p_main.qml")
             }
         }
     }
 
     Keys.onReleased: {
         if (event.key === Qt.Key_Back) {
-            settingswindow.showScreen("mainpage.qml")
+            p_settings.showScreen("p_main.qml")
         }
     }
 

@@ -9,7 +9,7 @@ Window {
     height: Screen.height
     Loader {
         id: loader
-        source: "mainpage.qml"
+        source: "p_main.qml"
     }
 
     signal showScreen(string msg)
