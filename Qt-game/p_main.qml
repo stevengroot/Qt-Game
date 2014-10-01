@@ -19,54 +19,61 @@ Rectangle {
         }
     }
 
-    Image {     //quit botton
-        id: quit
-        source: "images/close.png"
-        width : Screen.logicalPixelDensity*20
-        height: width                           //height = width = dependent of pixeldensity
-        x:0;y:0;
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {                        //if button is clicked, go to confirm page
-                customEmit((quit.x+quit.width/2),(quit.y+quit.height/2) );
-                timer3.start()
+    Rectangle{
+        id: topbar
+        height: Screen.logicalPixelDensity*20
+        width: Screen.width
+        color:"lightgray"
+
+
+        Image {     //quit botton
+            id: quit
+            source: "images/close.png"
+            width : topbar.height
+            height: topbar.height
+            x:0;y:0;
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {                        //if button is clicked, go to confirm page
+                    customEmit((quit.x+quit.width/2),(quit.y+quit.height/2) );
+                    timer3.start()
+                }
             }
         }
-    }
 
-    Timer {
-        id:timer3
-        interval: 200
-        triggeredOnStart: false
-        running: false
-        repeat: false
-        onTriggered: p_main.showScreen("p_confirm.qml")
-    }
+        Timer {
+            id:timer3
+            interval: 200
+            triggeredOnStart: false
+            running: false
+            repeat: false
+            onTriggered: p_main.showScreen("p_confirm.qml")
+        }
 
-    Image {                                     //settings button
-        id: settings
-        source: "images/settings.png"
-        width : Screen.logicalPixelDensity*20
-        height: width
-        x:Screen.width-settings.width;y:0;
-        MouseArea {
-            anchors.fill: parent
-            onClicked:{                         //if button is clicked, go to settings page
-                customEmit((settings.x+settings.width/2),(settings.y+settings.height/2) );
-                timer1.start()
+        Image {                                     //settings button
+            id: settings
+            source: "images/settings.png"
+            width : topbar.height
+            height: topbar.height
+            anchors.right:topbar.right
+            MouseArea {
+                anchors.fill: parent
+                onClicked:{                         //if button is clicked, go to settings page
+                    customEmit((settings.x+settings.width/2),(settings.y+settings.height/2) );
+                    timer1.start()
+                }
             }
         }
-    }
 
-    Timer {
-        id:timer1
-        interval: 200
-        triggeredOnStart: false
-        running: false
-        repeat: false
-        onTriggered: p_main.showScreen("p_settings.qml")
+        Timer {
+            id:timer1
+            interval: 200
+            triggeredOnStart: false
+            running: false
+            repeat: false
+            onTriggered: p_main.showScreen("p_settings.qml")
+        }
     }
-
     Image {                                     // info button
         id: info
         source: "images/info.png"
@@ -129,7 +136,7 @@ Rectangle {
                 lifeSpan: 120
                 size: 20
                 endSize: 8
-                velocity: AngleDirection {angleVariation:360; magnitude: 600}
+                velocity: AngleDirection {angleVariation:360; magnitude: 1000}
             }
 
             property int life: 500
