@@ -8,5 +8,6 @@
         <file>images/close.png</file>
         <file>images/info.png</file>
         <file>images/settings.png</file>
+        <file>images/blur-circle.png</file>
     </qresource>
 </RCC>

@@ -15,20 +15,20 @@ Rectangle  {
     signal showScreen(string msg)
 
     Image {
-        id: quit
+        id: quit                                    //Quit button
         source: "images/close.png"
         width : Screen.logicalPixelDensity*20
         height: width
         x:0;y:0;
         MouseArea {
             anchors.fill: parent
-            onClicked: {
+            onClicked: {                            //if quit button is pressed, go back to main
                 p_info.showScreen("p_main.qml")
             }
         }
     }
 
-    Timer {
+    Timer {                                 //timer to count how long you've been in this page
         interval: 1
         triggeredOnStart: true
         running: true
@@ -41,7 +41,8 @@ Rectangle  {
         height: Screen.height-(quit.height+sliderect.height+70)
         y:quit.height
         color:"#fa7d7d"
-        Keys.onReleased: {
+
+        Keys.onReleased: {                              //backbutton catched, only goes back if the 'times needed to go back' is reached
             if (event.key === Qt.Key_Back) {
                 backpressed = backpressed+1
                 event.accepted = true
@@ -50,12 +51,12 @@ Rectangle  {
         }
 
 
-        Component {
+        Component {                         //prints the text from the list from listview.
             id: infoDelegate
             Row {
                 id: infor
                 Text { text: assign(index, 2) + ": " ; color: infor.ListView.view.infor_color }
-                Text { text: assign(index, 1) }
+                Text { text: assign(index, 1) }                             //index gives gives number of the list
 
             }
         }
@@ -64,12 +65,12 @@ Rectangle  {
             property color infor_color: "#7dfafa"
             model: 50
             delegate: infoDelegate
-            anchors.fill: parent
+            anchors.fill: parent                            //makes a list of 50 items
 
         }
     }
 
-    function assign(number, type){
+    function assign(number, type){                          //assigns the number of the list to the values
 
         var a,b;
         switch (number){
@@ -111,7 +112,7 @@ Rectangle  {
     }
 
 
-    function orientationToString(o) {
+    function orientationToString(o) {           //takes the screen orientation and makes it a string
         switch (o) {
         case Qt.PrimaryOrientation:
             return "primary";
@@ -126,7 +127,8 @@ Rectangle  {
         }
         return "unknown";
     }
-    Rectangle  {
+
+    Rectangle  {                            //horizontal sqaure, changes opacity when dragged, changes color when clicked
         id: rect
         width: 200; height: 200
         color: "#7dbcfa"
@@ -148,7 +150,7 @@ Rectangle  {
 
     PropertyAnimation {id: animateColor; target: rect; properties: "color"; to: "green"; duration: 100}
 
-    NumberAnimation {
+    NumberAnimation {           //animates the color change of rect
         id: animateOpacity
         target: rect
         properties: "opacity"
@@ -158,7 +160,7 @@ Rectangle  {
         easing {type: Easing.OutBack; overshoot: 500}
     }
 
-    Text {
+    Text {                          //text bound to rect
         id: recttext
         anchors{
             top: rect.bottom
@@ -169,7 +171,8 @@ Rectangle  {
         style: Text.Outline; styleColor: "black"
         text: "Rectangle"
     }
-    Rectangle  {
+
+    Rectangle  {                //vertical square, decides how many times you need to press back
         id: sliderect
         width: 200; height: 200
         color: "#7dbcfa"
@@ -182,7 +185,8 @@ Rectangle  {
             drag.maximumX: p_info.width - sliderect.width
         }
     }
-    Text {
+
+    Text {                  //text bound to sliderect
         id: sliderecttext
         anchors{
             bottom: sliderect.top
@@ -193,12 +197,13 @@ Rectangle  {
         style: Text.Outline; styleColor: "black"
         text: "Rectangle"
     }
-    function xtonumber(q) {
+
+    function xtonumber(q) {             //changes x-coor from sliderect to 0-10 value
         var a = (q / Screen.width) * 10 + 1;
         return a;
     }
 
-    PositionSource {
+    PositionSource {                        //gets coordinates of the device
         id: src
         property double coordlat
         property double coordlong

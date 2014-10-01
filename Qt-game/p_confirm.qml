@@ -15,7 +15,7 @@ Rectangle {
         anchors.centerIn: parent
     }
 
-    Button{
+    Button{                                         //yes button, if clicked, quit the app
         text: qsTr("yes")
         width: Screen.width/4.5
         height: width/4
@@ -24,7 +24,7 @@ Rectangle {
         onClicked:
             Qt.quit()
     }
-    Button{
+    Button{                                         //no button, if clicked, go back to mainpage
         text: qsTr("no")
         width: Screen.width/4.5
         height: width/4

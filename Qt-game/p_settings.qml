@@ -11,29 +11,29 @@ Rectangle {
     signal showScreen(string msg)
 
     Image {
-        id: quit
+        id: quit                                    //Quit button
         source: "images/close.png"
         width : Screen.logicalPixelDensity*20
         height: width
         anchors{
-            left: mainwindow.left
-            top: mainwindow.top }
+            left: p_settings.left
+            top: p_settings.top }
         MouseArea {
             anchors.fill: parent
-            onClicked: {
+            onClicked: {                            //if quit button is pressed, go back to main
                 p_settings.showScreen("p_main.qml")
             }
         }
     }
 
-    Keys.onReleased: {
+    Keys.onReleased: {                              //if backbutton is pressed, go back to main
         if (event.key === Qt.Key_Back) {
             event.accepted = true
             p_settings.showScreen("p_main.qml")
         }
     }
 
-    Text {
+    Text {                                          //simple settings text
         text: qsTr("settings")
         anchors.centerIn: parent
     }
