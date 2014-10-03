@@ -13,7 +13,7 @@ Rectangle {
     Image {
         id: quit                                    //Quit button
         source: "images/close.png"
-        width : Screen.logicalPixelDensity*20
+        width : Screen.logicalPixelDensity*15
         height: width
         anchors{
             left: p_settings.left

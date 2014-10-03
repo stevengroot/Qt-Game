@@ -21,7 +21,7 @@ Rectangle {
 
     Rectangle{
         id: topbar
-        height: Screen.logicalPixelDensity*20
+        height: Screen.logicalPixelDensity*15
         width: Screen.width
         color:"lightgray"
 
@@ -77,7 +77,7 @@ Rectangle {
     Image {                                     // info button
         id: info
         source: "images/info.png"
-        width : Screen.logicalPixelDensity*20
+        width : Screen.logicalPixelDensity*15
         height: width
         x:0;y:Screen.height-(info.height+70);
         MouseArea {

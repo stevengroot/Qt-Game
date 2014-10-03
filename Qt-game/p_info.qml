@@ -17,7 +17,7 @@ Rectangle  {
     Image {
         id: quit                                    //Quit button
         source: "images/close.png"
-        width : Screen.logicalPixelDensity*20
+        width : Screen.logicalPixelDensity*15
         height: width
         x:0;y:0;
         MouseArea {
